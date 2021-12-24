@@ -1,10 +1,3 @@
-<!--
- * @Description: 商品详情页面组件
- * @Author: hai-27
- * @Date: 2020-02-16 20:20:26
- * @LastEditors: hai-27
- * @LastEditTime: 2020-03-07 21:59:26
- -->
 <template>
   <div id="details">
     <!-- 头部 -->

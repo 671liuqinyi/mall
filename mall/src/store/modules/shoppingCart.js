@@ -1,10 +1,3 @@
-/*
- * @Description: 购物车状态模块
- * @Author: hai-27
- * @Date: 2020-02-21 18:40:41
- * @LastEditors: hai-27
- * @LastEditTime: 2020-03-07 20:38:55
- */
 export default {
   state: {
     shoppingCart: []
@@ -125,7 +118,7 @@ export default {
       // 根据购物车id删除购物车商品
       for (let i = 0; i < state.shoppingCart.length; i++) {
         const temp = state.shoppingCart[i];
-        if (temp.id == id) {
+        if (temp.productID == id) {
           state.shoppingCart.splice(i, 1);
         }
       }

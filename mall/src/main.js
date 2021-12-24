@@ -1,10 +1,3 @@
-/*
- * 入口文件
- * @Author: hai-27
- * @Date: 2020-02-07 16:23:00
- * @LastEditors: hai-27
- * @LastEditTime: 2020-03-04 23:38:41
- */
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
@@ -14,9 +7,7 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 
-// 全局函数及变量
-/* import Global from './Global';
-Vue.use(Global); */
+
 
 import Axios from 'axios';
 Vue.prototype.$axios = Axios;
@@ -78,7 +69,7 @@ router.beforeResolve((to, from, next) => {
 
 // 相对时间过滤器,把时间戳转换成时间
 // 格式: 2020-02-25 21:43:23
-Vue.filter('dateFormat', (dataStr) => {
+/* Vue.filter('dateFormat', (dataStr) => {
   var time = new Date(dataStr);
   function timeAdd0 (str) {
     if (str < 10) {
@@ -93,7 +84,7 @@ Vue.filter('dateFormat', (dataStr) => {
   var mm = time.getMinutes();
   var s = time.getSeconds();
   return y + '-' + timeAdd0(m) + '-' + timeAdd0(d) + ' ' + timeAdd0(h) + ':' + timeAdd0(mm) + ':' + timeAdd0(s);
-});
+}); */
 
 //全局组件
 import MyMenu from './components/MyMenu';

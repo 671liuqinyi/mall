@@ -1,10 +1,3 @@
-<!--
- * @Description: 项目根组件
- * @Author: hai-27
- * @Date: 2020-02-07 16:23:00
- * @LastEditors: hai-27
- * @LastEditTime: 2020-04-05 13:14:48
- -->
 <template>
   <div id="app" name="app">
     <el-container>
@@ -92,7 +85,7 @@
             </div>
           </div>
           <div class="github">
-            <a href="javascript:;" target="_blank">
+            <a href="https://github.com/671liuqinyi/mall" target="_blank">
               <div class="github-but"></div>
             </a>
           </div>
@@ -102,7 +95,7 @@
               <span>|</span>
               <router-link to="/goods">全部商品</router-link>
               <span>|</span>
-              <router-link to="/about">关于我们</router-link>
+              <a href="https://github.com/671liuqinyi/mall" target="_blank">关于我们</a>
             </p>
             <p class="coty">商城版权所有 &copy; 2012-2021</p>
           </div>

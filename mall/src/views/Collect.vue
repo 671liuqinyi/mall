@@ -1,10 +1,3 @@
-<!--
- * @Description: 我的收藏页面组件
- * @Author: hai-27
- * @Date: 2020-02-20 17:22:56
- * @LastEditors: hai-27
- * @LastEditTime: 2020-03-12 19:34:00
- -->
 <template>
   <div class="collect">
     <!-- Add a static page for my favorite module -->

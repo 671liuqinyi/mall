@@ -1,10 +1,3 @@
-<!--
- * @Description: 首页组件
- * @Author: hai-27
- * @Date: 2020-02-07 16:23:00
- * @LastEditors: hai-27
- * @LastEditTime: 2020-02-27 13:36:12
- -->
 <template>
   <div class="home" id="home" name="home">
     <!-- 轮播图 -->

@@ -1,10 +1,3 @@
-<!--
- * @Description: 我的订单页面组件
- * @Author: hai-27
- * @Date: 2020-02-20 17:21:54
- * @LastEditors: hai-27
- * @LastEditTime: 2020-02-27 13:36:27
- -->
 <template>
   <div class="order">
     <!-- 我的订单头部 -->
@@ -25,7 +18,7 @@
           <!-- 我的订单表头 -->
           <li class="order-info">
             <div class="order-id">订单编号: {{item[0].order_id}}</div>
-            <div class="order-time">订单时间: {{item[0].order_time | dateFormat}}</div>
+            <div class="order-time">订单时间: {{item[0].order_time }}</div>
           </li>
           <li class="header">
             <div class="pro-img"></div>
@@ -95,8 +88,8 @@ export default {
       user_id: this.$store.getters.getUser.userid
     })
     // console.log(data.data)
-    if(data.code=='200'){
-      this.orders=data.data.reverse()
+    if (data.code == '200') {
+      this.orders = data.data.reverse()
     }
     /* .then(res => {
         if (res.data.code === "001") {
@@ -209,6 +202,9 @@ export default {
 .order .content ul .pro-name {
   float: left;
   width: 380px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .order .content ul .pro-name a {
   color: #424242;

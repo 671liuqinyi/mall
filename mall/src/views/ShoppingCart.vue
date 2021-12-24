@@ -1,11 +1,3 @@
-<!--
- * @Description: 我的购物车页面组件
- * @Author: hai-27
- * @Date: 2020-02-20 01:55:47
- * @LastEditors: hai-27
- * @LastEditTime: 2020-02-27 13:36:42
- -->
-
 <template>
   <div class="shoppingCart">
     <!-- 购物车头部 -->
@@ -173,7 +165,7 @@ export default {
         })
         // console.log(data)
         if(data.code=='200'){
-          this.deleteShoppingCart(id)
+          this.deleteShoppingCart(productID)
           location.reload()
         }
         /* .then(res => {

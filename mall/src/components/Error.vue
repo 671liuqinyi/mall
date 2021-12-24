@@ -1,10 +1,3 @@
-<!--
- * @Description: 
- * @Author: hai-27
- * @Date: 2020-02-27 13:57:14
- * @LastEditors: hai-27
- * @LastEditTime: 2020-02-27 14:11:31
- -->
 <template>
   <div class="error">
     <div class="main"></div>

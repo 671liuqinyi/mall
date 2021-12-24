@@ -1,10 +1,3 @@
-<!--
- * @Description: 列表组件，用于首页、全部商品页面的商品列表
- * @Author: hai-27
- * @Date: 2020-02-07 16:23:00
- * @LastEditors: hai-27
- * @LastEditTime: 2020-04-05 13:22:22
- -->
 <template>
   <div id="myList" class="myList">
     <ul>
