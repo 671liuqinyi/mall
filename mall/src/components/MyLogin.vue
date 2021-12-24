@@ -51,8 +51,8 @@ export default {
     }
     return {
       LoginUser: {
-        name: 'lqy111',
-        pass: 'lqy111'
+        name: '',
+        pass: ''
       },
       // 用户信息校验规则,validator(校验方法),trigger(触发方式),blur为在组件 Input 失去焦点时触发
       rules: {

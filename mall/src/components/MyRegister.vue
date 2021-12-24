@@ -84,9 +84,9 @@ export default {
     return {
       isRegister: false, // 控制注册组件是否显示
       RegisterUser: {
-        name: 'zhangsan',
-        pass: 'zhangsan',
-        confirmPass: 'zhangsan'
+        name: '',
+        pass: '',
+        confirmPass: ''
       },
       // 用户信息校验规则,validator(校验方法),trigger(触发方式),blur为在组件 Input 失去焦点时触发
       rules: {
