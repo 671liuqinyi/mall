@@ -129,21 +129,6 @@ export default {
           } else {
             this.$message.error('注册失败,请稍后再试!')
           }
-          /* .then(res => {
-              // “001”代表注册成功，其他的均为失败
-              if (res.data.code === '001') {
-                // 隐藏注册组件
-                this.isRegister = false
-                // 弹出通知框提示注册成功信息
-                this.notifySucceed(res.data.msg)
-              } else {
-                // 弹出通知框提示注册失败信息
-                this.notifyError(res.data.msg)
-              }
-            })
-            .catch(err => {
-              return Promise.reject(err)
-            }) */
         } else {
           return false
         }

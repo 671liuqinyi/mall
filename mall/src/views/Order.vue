@@ -91,17 +91,7 @@ export default {
     if (data.code == '200') {
       this.orders = data.data.reverse()
     }
-    /* .then(res => {
-        if (res.data.code === "001") {
-          this.orders = res.data.orders;
-          console.log(this.orders)
-        } else {
-          this.notifyError(res.data.msg);
-        }
-      })
-      .catch(err => {
-        return Promise.reject(err);
-      }); */
+    
   },
   watch: {
     // 通过订单信息，计算出每个订单的商品数量及总价

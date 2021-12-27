@@ -25,11 +25,6 @@
     <div class="main">
       <!-- 左侧商品轮播图 -->
       <div class="block">
-        <!-- <el-carousel height="560px" v-if="productPicture.length>1">
-          <el-carousel-item v-for="item in productPicture" :key="item.id">
-            <img style="height:560px;" :src="$target + item.product_picture" :alt="item.intro" />
-          </el-carousel-item>
-        </el-carousel> -->
         <div>
           <img style="height:560px;" :src="productPicture" :alt="productDetails.product_intro" />
         </div>
@@ -113,26 +108,9 @@ export default {
         this.productPicture = data.data[0].product_picture
         // console.log(this.productPicture)
       }
-      /* .then(res => {
-          this.productDetails = res.data.Product[0];
-        })
-        .catch(err => {
-          return Promise.reject(err);
-        }); */
+      
     },
-    // 获取商品图片
-    /*     getDetailsPicture(val) {
-      this.$axios
-        .post('/api/product/getDetailsPicture', {
-          productID: val
-        })
-        .then(res => {
-          this.productPicture = res.data.ProductPicture
-        })
-        .catch(err => {
-          return Promise.reject(err)
-        })
-    }, */
+    
     // 加入购物车
     async addShoppingCart() {
       // 判断是否登录,没有登录则显示登录组件
@@ -147,38 +125,14 @@ export default {
       console.log(data)
       if (data.code == '200') {
         this.$message.success('购物车添加成功!')
-        location.reload()
-        // this.$router.replace('/about')
-        // this.reload()
+        // location.reload()
+        this.reload()
       } else if (data.code == '201') {
         this.$message.warning('该商品已经在购物车!')
       } else {
         this.$message.error('添加失败!')
       }
-      /*         .then(res => {
-          switch (res.data.code) {
-            case '001':
-              // 新加入购物车成功
-              this.unshiftShoppingCart(res.data.shoppingCartData[0])
-              this.notifySucceed(res.data.msg)
-              break
-            case '002':
-              // 该商品已经在购物车，数量+1
-              this.addShoppingCartNum(this.productID)
-              this.notifySucceed(res.data.msg)
-              break
-            case '003':
-              // 商品数量达到限购数量
-              this.dis = true
-              this.notifyError(res.data.msg)
-              break
-            default:
-              this.notifyError(res.data.msg)
-          }
-        })
-        .catch(err => {
-          return Promise.reject(err)
-        }) */
+      
     },
     async addCollect() {
       // 判断是否登录,没有登录则显示登录组件
@@ -198,18 +152,7 @@ export default {
       } else if (data.code == '201') {
         this.$message.warning('您已经收藏过该商品!')
       }
-      /* .then(res => {
-          if (res.data.code == '001') {
-            // 添加收藏成功
-            this.notifySucceed(res.data.msg)
-          } else {
-            // 添加收藏失败
-            this.notifyError(res.data.msg)
-          }
-        })
-        .catch(err => {
-          return Promise.reject(err)
-        }) */
+      
     }
   }
 }

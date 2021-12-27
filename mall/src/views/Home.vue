@@ -3,8 +3,17 @@
     <!-- 轮播图 -->
     <div class="block">
       <el-carousel height="460px">
-        <el-carousel-item v-for="item in carousel" :key="item.carousel_id">
-          <img style="height:460px;" src="../assets/tempimgs/car.jpg" alt="item.describes" />
+        <el-carousel-item>
+          <img style="height:460px;" src="../assets/tempimgs/carousel1.jpg" :alt="item" />
+        </el-carousel-item>
+        <el-carousel-item>
+          <img style="height:460px;" src="../assets/tempimgs/carousel2.webp" :alt="item" />
+        </el-carousel-item>
+        <el-carousel-item>
+          <img style="height:460px;" src="../assets/tempimgs/carousel3.jpg" :alt="item" />
+        </el-carousel-item>
+        <el-carousel-item>
+          <img style="height:460px;" src="../assets/tempimgs/carousel4.webp" :alt="item" />
         </el-carousel-item>
       </el-carousel>
     </div>
@@ -34,10 +43,7 @@
           <div class="box-hd">
             <div class="title">日常用品</div>
             <div class="more" id="more">
-              <!-- <MyMenu :val="2" @fromChild="getChildMsg">
-                <span slot="1">热门</span>
-                <span slot="2">电视影音</span>
-              </MyMenu> -->
+
             </div>
           </div>
           <div class="box-bd">
@@ -66,81 +72,15 @@
 export default {
   data() {
     return {
-      carousel: [{}, {}, {}, {}], // 轮播图数据
+      carousel: [], // 轮播图数据
       phoneList: [], // 手机商品列表
-      dailygoodsList: [], // 日常用品列表
-      /* applianceActive: 1, // 家电当前选中的商品分类
-      accessoryActive: 1 // 配件当前选中的商品分类 */
+      dailygoodsList: [] // 日常用品列表
     }
   },
-/*   watch: {
-    // 家电当前选中的商品分类，响应不同的商品数据
-    applianceActive: function (val) {
-      // 页面初始化的时候把applianceHotList(热门家电商品列表)直接赋值给applianceList(家电商品列表)
-      // 所以在切换商品列表时判断applianceHotList是否为空,为空则是第一次切换,把applianceList赋值给applianceHotList
-      if (this.applianceHotList == '') {
-        this.applianceHotList = this.applianceList
-      }
-      if (val == 1) {
-        // 1为热门商品
-        this.applianceList = this.applianceHotList
-        return
-      }
-      if (val == 2) {
-        // 2为电视商品
-        this.applianceList = this.miTvList
-        return
-      }
-    },
-    accessoryActive: function (val) {
-      // 页面初始化的时候把accessoryHotList(热门配件商品列表)直接赋值给accessoryList(配件商品列表)
-      // 所以在切换商品列表时判断accessoryHotList是否为空,为空则是第一次切换,把accessoryList赋值给accessoryHotList
-      if (this.accessoryHotList == '') {
-        this.accessoryHotList = this.accessoryList
-      }
-      if (val == 1) {
-        // 1为热门商品
-        this.accessoryList = this.accessoryHotList
-        return
-      }
-      if (val == 2) {
-        // 2为保护套商品
-        this.accessoryList = this.protectingShellList
-        return
-      }
-      if (val == 3) {
-        //3 为充电器商品
-        this.accessoryList = this.chargerList
-        return
-      }
-    }
-  }, */
   created() {
-    // 获取轮播图数据
-    /* this.$axios
-      .post("/api/resources/carousel", {})
-      .then(res => {
-        this.carousel = res.data.carousel;
-      })
-      .catch(err => {
-        return Promise.reject(err);
-      }); */
     // 获取各类商品数据
     this.getPromo('phone')
     this.getPromo('dailygoods')
-    /* this.getPromo("电视机", "miTvList");
-    this.getPromo("保护套", "protectingShellList");
-    this.getPromo("充电器", "chargerList");
-    this.getPromo(
-      ["电视机", "空调", "洗衣机"],
-      "applianceList",
-      "/api/product/getHotProduct"
-    );
-    this.getPromo(
-      ["保护套", "保护膜", "充电器", "充电宝"],
-      "accessoryList",
-      "/api/product/getHotProduct"
-    ); */
   },
   methods: {
     // 打乱数组
@@ -156,14 +96,7 @@ export default {
       }
       return arr
     },
-/*     // 获取家电模块子组件传过来的数据
-    getChildMsg(val) {
-      this.applianceActive = val
-    },
-    // 获取配件模块子组件传过来的数据
-    getChildMsg2(val) {
-      this.accessoryActive = val
-    }, */
+
     // 获取各类商品数据方法封装
     async getPromo(type) {
       let { data } = await this.$axios.get('/api/getproduct', {
@@ -179,12 +112,6 @@ export default {
           this.dailygoodsList = data.data
         }
       }
-      /* .then(res => {
-          this[val] = res.data.Product
-        })
-        .catch(err => {
-          return Promise.reject(err)
-        }) */
     }
   }
 }

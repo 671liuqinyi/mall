@@ -38,14 +38,6 @@ export default {
     if(data.code=='200'){
       this.collectList = data.data
     }
-    /* .then(res => {
-        if (res.data.code === "001") {
-          this.collectList = res.data.collectList;
-        }
-      })
-      .catch(err => {
-        return Promise.reject(err);
-      }); */
   }
 }
 </script>

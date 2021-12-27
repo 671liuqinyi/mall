@@ -27,6 +27,9 @@
             <li>
               <router-link to="/collect">我的收藏</router-link>
             </li>
+            <li v-if="!this.$store.state.user.user.username">
+              <a href="http://114.55.7.18:81">管理员入口</a>
+            </li>
             <li :class="getNum > 0 ? 'shopCart-full' : 'shopCart'">
               <router-link to="/shoppingCart">
                 <i class="el-icon-shopping-cart-full"></i> 购物车
@@ -48,8 +51,6 @@
           </div>
           <el-menu-item index="/">首页</el-menu-item>
           <el-menu-item index="/goods">全部商品</el-menu-item>
-          <!-- <el-menu-item index="/about">关于我们</el-menu-item> -->
-
           <div class="so">
             <el-input placeholder="请输入搜索内容" v-model="search">
               <el-button slot="append" icon="el-icon-search" @click="searchClick"></el-button>
@@ -67,7 +68,7 @@
       <!-- 主要区域容器 -->
       <el-main>
         <keep-alive>
-          <router-view></router-view>
+          <router-view v-if="isRouterAlive"></router-view>
         </keep-alive>
       </el-main>
       <!-- 主要区域容器END -->
@@ -111,6 +112,7 @@ import { mapActions } from 'vuex'
 import { mapGetters } from 'vuex'
 
 export default {
+  // 解决数据购物车数据不同步问题
   provide() {
     return {
       reload: this.reload
@@ -121,22 +123,10 @@ export default {
   },
   created() {
     let data = sessionStorage.getItem('user')
-    // console.log(JSON.parse(data))
     if (data) {
       this.$store.dispatch('setUser', JSON.parse(data))
-      // console.log(this.$store.state)
       // 用户已经登录,获取该用户的购物车信息
-      // console.log(this.getUser)
       this.getShoppingCartData()
-      /* .then(res => {
-            if (res.data.code === "001") {
-              // 001 为成功, 更新vuex购物车状态
-              this.setShoppingCart(res.data.shoppingCartData);
-            } else {
-              // 提示失败信息
-              this.notifyError(res.data.msg);
-            }
-          }) */
     }
   },
   data() {
@@ -151,33 +141,6 @@ export default {
   computed: {
     ...mapGetters(['getUser', 'getNum'])
   },
-  /*     watch: {
-    // 获取vuex的登录状态
-    getUser: function(val) {
-      if (val === "") {
-        // 用户没有登录
-        this.setShoppingCart([]);
-      } else {
-        // 用户已经登录,获取该用户的购物车信息
-        this.$axios
-          .post("/api/user/shoppingCart/getShoppingCart", {
-            user_id: val.user_id
-          })
-          .then(res => {
-            if (res.data.code === "001") {
-              // 001 为成功, 更新vuex购物车状态
-              this.setShoppingCart(res.data.shoppingCartData);
-            } else {
-              // 提示失败信息
-              this.notifyError(res.data.msg);
-            }
-          })
-          .catch(err => {
-            return Promise.reject(err);
-          });
-      }
-    }
-  }, */
   methods: {
     ...mapActions(['setUser', 'setShowLogin', 'setShoppingCart']),
     login() {
@@ -195,6 +158,7 @@ export default {
     },
     reload() {
       this.isRouterAlive = false
+      this.getShoppingCartData()
       this.$nextTick(function () {
         this.isRouterAlive = true
       })
@@ -217,8 +181,8 @@ export default {
       })
       // console.log(data)
       // 把从数据库中获得的string类型转为Boolean类型
-      for(let i=0;i<data.data.length;i++){
-        data.data[i].check=true
+      for (let i = 0; i < data.data.length; i++) {
+        data.data[i].check = true
         // console.log(data.data[i].check)
       }
       if (data.code == '200') {

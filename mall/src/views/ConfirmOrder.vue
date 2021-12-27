@@ -155,7 +155,8 @@ export default {
     async addOrder() {
       let { data } = await this.$axios.post('/api/addorder', {
         user_id: this.$store.getters.getUser.userid,
-        products: this.getCheckGoods
+        products: this.getCheckGoods,
+        totalprice:this.getTotalPrice
       })
       console.log(data)
       if (data.code == '200') {
@@ -172,29 +173,6 @@ export default {
         }
         this.$router.push({ path: '/order' })
       }
-      /*         .then(res => {
-          let products = this.getCheckGoods
-          switch (res.data.code) {
-            // “001”代表结算成功
-            case '001':
-              for (let i = 0; i < products.length; i++) {
-                const temp = products[i]
-                // 删除已经结算的购物车商品
-                this.deleteShoppingCart(temp.id)
-              }
-              // 提示结算结果
-              this.notifySucceed(res.data.msg)
-              // 跳转我的订单页面
-              this.$router.push({ path: '/order' })
-              break
-            default:
-              // 提示失败信息
-              this.notifyError(res.data.msg)
-          }
-        })
-        .catch(err => {
-          return Promise.reject(err)
-        }) */
     },
     // 增加新地址
     addAddress() {

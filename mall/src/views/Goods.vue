@@ -57,10 +57,6 @@ export default {
       search: '' // 搜索条件
     }
   },
-  created() {
-    // 获取分类列表
-    // this.getCategory()
-  },
   activated() {
     this.activeName = '-1' // 初始化分类列表当前选中的id为-1
     this.total = 0 // 初始化商品总量为0
@@ -147,24 +143,6 @@ export default {
       this.product = this.productList.slice(prev, current)
       this.backtop()
     },
-    /*     // 向后端请求分类列表数据
-    getCategory() {
-      this.$axios
-        .post('/api/product/getCategory', {})
-        .then(res => {
-          const val = {
-            category_id: 0,
-            category_name: '全部'
-          }
-          const cate = res.data.category
-          cate.unshift(val)
-          this.categoryList = cate
-          console.log(this.categoryList)
-        })
-        .catch(err => {
-          return Promise.reject(err)
-        })
-    }, */
     // 向后端请求全部商品或分类商品数据
     async getData() {
       // 如果分类列表为空则请求全部商品数据，否则请求分类商品数据
@@ -177,13 +155,6 @@ export default {
         this.product = data.data.slice(0, 15)
         this.total = data.total
       }
-      /* .then(res => {
-          this.product = res.data.Product
-          this.total = res.data.total
-        })
-        .catch(err => {
-          return Promise.reject(err)
-        }) */
     },
     // 通过搜索条件向后端请求商品数据
     async getProductBySearch() {
@@ -195,13 +166,6 @@ export default {
         this.product = data.data.slice(0, 15)
         this.total = data.total
       }
-      /* .then(res => {
-          this.product = res.data.Product
-          this.total = res.data.total
-        })
-        .catch(err => {
-          return Promise.reject(err)
-        }) */
     }
   }
 }

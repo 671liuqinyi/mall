@@ -4,13 +4,13 @@ Navicat MySQL Data Transfer
 Source Server         : localhost
 Source Server Version : 80013
 Source Host           : localhost:3306
-Source Database       : mall
+Source Database       : malldata
 
 Target Server Type    : MYSQL
 Target Server Version : 80013
 File Encoding         : 65001
 
-Date: 2021-12-24 13:19:19
+Date: 2021-12-27 14:08:48
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -140,7 +140,7 @@ CREATE TABLE `goods_info` (
   `goods_category_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '关联分类id',
   `goods_cover_img` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '/admin/dist/img/no-img.png' COMMENT '商品主图',
   `goods_carousel` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '/admin/dist/img/no-img.png' COMMENT '商品轮播图',
-  `goods_detail_content` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '商品详情',
+  `goods_detail_content` text CHARACTER SET utf8 COLLATE utf8_general_ci COMMENT '鍟嗗搧璇︽儏',
   `original_price` int(11) NOT NULL DEFAULT '1' COMMENT '商品价格',
   `selling_price` int(11) NOT NULL DEFAULT '1' COMMENT '商品实际售价',
   `stock_num` int(11) NOT NULL DEFAULT '0' COMMENT '商品库存数量',
@@ -151,7 +151,7 @@ CREATE TABLE `goods_info` (
   `update_user` int(11) NOT NULL DEFAULT '0' COMMENT '修改者主键id',
   `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '商品修改时间',
   PRIMARY KEY (`goods_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=10907 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=10909 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of goods_info
@@ -731,6 +731,8 @@ INSERT INTO `goods_info` VALUES ('10895', 'HUAWEI Mate 30 4000万超感光徕卡
 INSERT INTO `goods_info` VALUES ('10903', '华为 HUAWEI P40 冰霜银 全网通5G手机', '麒麟990 5G SoC芯片 5000万超感知徕卡三摄 30倍数字变焦 6GB+128GB', '46', 'https://newbee-mall.oss-cn-beijing.aliyuncs.com/images/p40-silver.png', 'https://newbee-mall.oss-cn-beijing.aliyuncs.com/images/p40-silver.png', '<img src=\"https://newbee-mall.oss-cn-beijing.aliyuncs.com/images/p40-detail.jpg\" alt=\"\" />', '4399', '4399', '1997', '超感知影像', '0', '0', '2020-03-27 10:07:37', '0', '2020-10-13 10:41:59');
 INSERT INTO `goods_info` VALUES ('10905', 'Apple iPhone12 (A2404) 蓝色 支持移动联通电信5G 双卡双待手机', 'A14仿生芯片，6.1英寸超视网膜XDR显示屏，超瓷晶面板，升维大提速，现实力登场！', '47', 'https://newbee-mall.oss-cn-beijing.aliyuncs.com/images/iPhone12-blue.png', 'https://newbee-mall.oss-cn-beijing.aliyuncs.com/images/iPhone12-blue.png', '<img src=\"https://newbee-mall.oss-cn-beijing.aliyuncs.com/images/iphone12-detail.jpg\" alt=\"\" />', '6299', '6299', '1000', '升维，大提速。', '0', '0', '2020-10-14 10:30:06', '0', '2020-10-14 10:30:06');
 INSERT INTO `goods_info` VALUES ('10906', 'Apple iPhone12 Pro (A2408) 128GB 海蓝色 支持移动联通电信5G 双卡双待手机', 'A14仿生芯片，6.1英寸超视网膜XDR显示屏，激光雷达扫描仪，超瓷晶面板，现实力登场！', '47', 'https://newbee-mall.oss-cn-beijing.aliyuncs.com/images/iphone-12-pro-blue-hero.png', 'https://newbee-mall.oss-cn-beijing.aliyuncs.com/images/iphone-12-pro-blue-hero.png', '<img src=\"https://newbee-mall.oss-cn-beijing.aliyuncs.com/images/iphone12pro-detail.jpg\" alt=\"\" />', '8499', '8499', '2000', '自我再飞跃', '0', '0', '2020-10-14 10:32:55', '0', '2020-10-14 10:32:55');
+INSERT INTO `goods_info` VALUES ('10907', '123', '', '0', '/admin/dist/img/no-img.png', '/admin/dist/img/no-img.png', '1', '1', '1', '0', '', '0', '0', '2021-12-26 14:25:56', '0', '2021-12-26 14:25:56');
+INSERT INTO `goods_info` VALUES ('10908', '8848手机', '', '0', '/admin/dist/img/no-img.png', '/admin/dist/img/no-img.png', null, '1234', '1111', '10', '', '0', '0', '2021-12-26 14:26:22', '0', '2021-12-26 14:26:22');
 
 -- ----------------------------
 -- Table structure for `index_config`
@@ -800,7 +802,7 @@ CREATE TABLE `orders` (
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '最新修改时间',
   PRIMARY KEY (`order_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=128 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=136 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of orders
@@ -812,7 +814,6 @@ INSERT INTO `orders` VALUES ('4', '15689090398492576', '1', '8499', '0', '0', nu
 INSERT INTO `orders` VALUES ('5', '15689096266448452', '1', '115', '1', '2', '2019-09-20 00:13:52', '1', '', '', '', '杭州市西湖区xx小区x幢419 十三 137xxxx2703', '0', '2019-09-20 00:08:04', '2019-09-20 00:13:52');
 INSERT INTO `orders` VALUES ('6', '15691645776131562', '7', '7998', '1', '1', '2019-09-22 23:05:53', '1', '', '', '', '杭州市西湖区xx小区x幢419 十三 137xxxx2703', '0', '2019-09-22 22:57:15', '2019-09-22 23:05:53');
 INSERT INTO `orders` VALUES ('7', '15691648465397435', '7', '13998', '1', '2', '2019-09-22 23:07:38', '-1', '', '', '', '杭州市西湖区xx小区x幢419 十三 137xxxx2703', '0', '2019-09-22 23:01:44', '2019-09-22 23:02:10');
-INSERT INTO `orders` VALUES ('8', '15691649071896878', '7', '1246', '1', '1', '2019-09-22 23:08:31', '1', '', '', '', '杭州市西湖区xx小区x幢419 十三 137xxxx2703', '0', '2019-09-22 23:02:45', '2019-09-22 23:08:31');
 INSERT INTO `orders` VALUES ('9', '15691649748362177', '7', '25656', '1', '1', '2019-09-22 23:09:39', '4', '', '', '', '杭州市西湖区xx小区x幢419 十三 137xxxx2703', '0', '2019-09-22 23:03:52', '2019-09-22 23:50:45');
 INSERT INTO `orders` VALUES ('10', '15691652286194502', '7', '16197', '0', '0', null, '0', '', '', '', '杭州市西湖区xx小区x幢419 十三 137xxxx2703', '0', '2019-09-22 23:08:06', '2019-09-22 23:08:06');
 INSERT INTO `orders` VALUES ('11', '15692210075967186', '6', '5999', '1', '2', '2019-09-23 17:03:05', '1', '', '', '', '杭州市西湖区xx小区x幢419 十三 137xxxx2703', '0', '2019-09-23 14:43:27', '2019-09-23 17:03:05');
@@ -825,11 +826,14 @@ INSERT INTO `orders` VALUES ('17', '15694781962831307', '7', '1246', '1', '2', '
 INSERT INTO `orders` VALUES ('18', '15698039249771093', '7', '3199', '0', '0', null, '0', '', '', '', '杭州市西湖区xx小区x幢419 十三 137xxxx2703', '0', '2019-09-30 08:38:26', '2019-09-30 08:38:26');
 INSERT INTO `orders` VALUES ('19', '15702783557537865', '7', '6819', '0', '0', null, '0', '', '', '', '杭州市西湖区xx小区x幢419 十三 137xxxx2703', '0', '2019-10-05 20:20:10', '2019-10-05 20:20:10');
 INSERT INTO `orders` VALUES ('20', '15702847670935185', '6', '3999', '1', '2', '2019-10-05 22:13:03', '1', '', '', '', '上海浦东新区XX路XX号 999 137xxxx7797', '0', '2019-10-05 22:12:47', '2019-10-05 22:13:03');
-INSERT INTO `orders` VALUES ('123', '15802841640321669', '1', '1', '0', '0', null, '0', '', '', '', '', '0', '2021-12-24 12:54:29', '2021-12-24 12:54:29');
-INSERT INTO `orders` VALUES ('124', '15802841640321818', '1', '1', '0', '0', null, '0', '', '', '', '', '0', '2021-12-24 12:56:58', '2021-12-24 12:56:58');
-INSERT INTO `orders` VALUES ('125', '15802841640321920', '1', '1', '0', '0', null, '0', '', '', '', '', '0', '2021-12-24 12:58:40', '2021-12-24 12:58:40');
-INSERT INTO `orders` VALUES ('126', '15802841640322083', '1', '1', '0', '0', null, '0', '', '', '', '', '0', '2021-12-24 13:01:23', '2021-12-24 13:01:23');
-INSERT INTO `orders` VALUES ('127', '15802841640322961', '10', '1', '0', '0', null, '0', '', '', '', '', '0', '2021-12-24 13:16:01', '2021-12-24 13:16:01');
+INSERT INTO `orders` VALUES ('128', '15802841640494004', '1', '2888', '1', '0', null, '0', '', '', '', '', '0', '2021-12-26 12:46:44', '2021-12-26 12:46:44');
+INSERT INTO `orders` VALUES ('129', '15802841640510881', '1', '8423', '1', '0', null, '0', '', '', '', '', '0', '2021-12-22 17:28:01', '2021-12-26 17:28:01');
+INSERT INTO `orders` VALUES ('130', '15802841640516302', '1', '9698', '1', '0', null, '0', '', '', '', '', '0', '2021-12-23 18:58:22', '2021-12-26 18:58:22');
+INSERT INTO `orders` VALUES ('131', '15802841640516313', '1', '12098', '1', '0', null, '0', '', '', '', '', '0', '2021-12-24 18:58:33', '2021-12-26 18:58:33');
+INSERT INTO `orders` VALUES ('132', '15802841640516324', '1', '315', '1', '0', null, '0', '', '', '', '', '0', '2021-12-25 18:58:44', '2021-12-26 18:58:44');
+INSERT INTO `orders` VALUES ('133', '15802841640516553', '1', '8322', '1', '0', null, '0', '', '', '', '', '0', '2021-12-26 19:02:33', '2021-12-26 19:02:33');
+INSERT INTO `orders` VALUES ('134', '15802841640516573', '1', '6938', '1', '0', null, '0', '', '', '', '', '0', '2021-12-20 19:02:53', '2021-12-26 19:02:53');
+INSERT INTO `orders` VALUES ('135', '15802841640516587', '1', '249', '1', '0', null, '0', '', '', '', '', '0', '2021-12-21 19:03:07', '2021-12-26 19:03:07');
 
 -- ----------------------------
 -- Table structure for `order_item`
@@ -845,7 +849,7 @@ CREATE TABLE `order_item` (
   `goods_count` int(11) NOT NULL DEFAULT '1' COMMENT '数量(订单快照)',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`order_item_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of order_item
@@ -884,17 +888,22 @@ INSERT INTO `order_item` VALUES ('31', '19', '10742', '华为 HUAWEI P30 Pro', '
 INSERT INTO `order_item` VALUES ('32', '19', '10154', '无印良品 MUJI 塑料浴室座椅', '/goods-img/15395057-94e9-4545-a8ee-8aee025f40c5.jpg', '85', '1', '2019-10-05 20:20:10');
 INSERT INTO `order_item` VALUES ('33', '19', '10159', 'Apple AirPods 配充电盒', '/goods-img/53c9f268-7cd4-4fac-909c-2dc066625655.jpg', '1246', '1', '2019-10-05 20:20:10');
 INSERT INTO `order_item` VALUES ('34', '20', '10895', 'HUAWEI Mate 30 4000万超感光徕卡影像', '/goods-img/mate30-3.png', '3999', '1', '2019-10-05 22:12:47');
-INSERT INTO `order_item` VALUES ('35', '0', '0', '', '', '1', '1', '2021-12-24 10:08:11');
-INSERT INTO `order_item` VALUES ('36', '0', '0', '', '', '1', '1', '2021-12-24 10:08:18');
-INSERT INTO `order_item` VALUES ('39', '123', '10311', '', '', '1', '1', '2021-12-24 12:54:29');
-INSERT INTO `order_item` VALUES ('40', '123', '10366', '', '', '1', '1', '2021-12-24 12:54:29');
-INSERT INTO `order_item` VALUES ('41', '124', '10286', '', '', '1', '2', '2021-12-24 12:56:58');
-INSERT INTO `order_item` VALUES ('42', '124', '10043', '', '', '1', '1', '2021-12-24 12:56:58');
-INSERT INTO `order_item` VALUES ('43', '125', '10286', '', '', '1', '2', '2021-12-24 12:58:40');
-INSERT INTO `order_item` VALUES ('44', '125', '10043', '', '', '1', '1', '2021-12-24 12:58:40');
-INSERT INTO `order_item` VALUES ('45', '126', '10286', '', '', '1', '2', '2021-12-24 13:01:23');
-INSERT INTO `order_item` VALUES ('46', '126', '10043', '', '', '1', '1', '2021-12-24 13:01:23');
-INSERT INTO `order_item` VALUES ('47', '127', '10358', '', '', '1', '1', '2021-12-24 13:16:01');
+INSERT INTO `order_item` VALUES ('48', '128', '10326', '', '', '1', '1', '2021-12-26 12:46:44');
+INSERT INTO `order_item` VALUES ('49', '129', '10706', '', '', '1', '2', '2021-12-26 17:28:01');
+INSERT INTO `order_item` VALUES ('50', '129', '10171', '', '', '1', '3', '2021-12-26 17:28:01');
+INSERT INTO `order_item` VALUES ('51', '130', '10304', '', '', '1', '1', '2021-12-26 18:58:22');
+INSERT INTO `order_item` VALUES ('52', '130', '10279', '', '', '1', '1', '2021-12-26 18:58:22');
+INSERT INTO `order_item` VALUES ('53', '131', '10360', '', '', '1', '1', '2021-12-26 18:58:33');
+INSERT INTO `order_item` VALUES ('54', '131', '10283', '', '', '1', '1', '2021-12-26 18:58:33');
+INSERT INTO `order_item` VALUES ('55', '132', '10057', '', '', '1', '5', '2021-12-26 18:58:44');
+INSERT INTO `order_item` VALUES ('56', '132', '10062', '', '', '1', '2', '2021-12-26 18:58:44');
+INSERT INTO `order_item` VALUES ('57', '133', '10706', '', '', '1', '2', '2021-12-26 19:02:33');
+INSERT INTO `order_item` VALUES ('58', '133', '10080', '', '', '1', '3', '2021-12-26 19:02:33');
+INSERT INTO `order_item` VALUES ('59', '133', '10039', '', '', '1', '4', '2021-12-26 19:02:33');
+INSERT INTO `order_item` VALUES ('60', '134', '10346', '', '', '1', '1', '2021-12-26 19:02:53');
+INSERT INTO `order_item` VALUES ('61', '134', '10294', '', '', '1', '1', '2021-12-26 19:02:53');
+INSERT INTO `order_item` VALUES ('62', '135', '10024', '', '', '1', '1', '2021-12-26 19:03:07');
+INSERT INTO `order_item` VALUES ('63', '135', '10171', '', '', '1', '1', '2021-12-26 19:03:07');
 
 -- ----------------------------
 -- Table structure for `shopping_cart_item`
@@ -906,13 +915,11 @@ CREATE TABLE `shopping_cart_item` (
   `goods_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '关联商品id',
   `goods_count` int(11) NOT NULL DEFAULT '1' COMMENT '数量(最大为5)',
   PRIMARY KEY (`cart_item_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=108 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of shopping_cart_item
 -- ----------------------------
-INSERT INTO `shopping_cart_item` VALUES ('89', '1', '10286', '2');
-INSERT INTO `shopping_cart_item` VALUES ('90', '1', '10043', '1');
 INSERT INTO `shopping_cart_item` VALUES ('91', '10', '10358', '1');
 
 -- ----------------------------
@@ -933,12 +940,12 @@ CREATE TABLE `user` (
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES ('1', '', 'lqy111', 'lqy111', '1', '10007,10004,10705,10006,10166');
-INSERT INTO `user` VALUES ('2', '', '13869031542', '123456', '2', null);
-INSERT INTO `user` VALUES ('3', ' ', '18988634572', '123456', '3', null);
-INSERT INTO `user` VALUES ('4', ' ', 'admin', '123456', '3', null);
-INSERT INTO `user` VALUES ('5', ' ', 'admin2', '123456', '3', null);
-INSERT INTO `user` VALUES ('6', '', 'admin12', '123456', '3', null);
-INSERT INTO `user` VALUES ('7', '', 'admin11', '123456', '3', null);
-INSERT INTO `user` VALUES ('8', '', 'admin111', '123456', '3', null);
+INSERT INTO `user` VALUES ('2', '', 'x13869031', 'z123456', '2', null);
+INSERT INTO `user` VALUES ('3', ' ', 'xx11231 ', 'z123456', '3', null);
+INSERT INTO `user` VALUES ('4', ' ', 'admin', 'admin12', '2', null);
+INSERT INTO `user` VALUES ('5', ' ', 'admin2', 'z123456', '3', null);
+INSERT INTO `user` VALUES ('6', '', 'admin12', 'z123456', '3', null);
+INSERT INTO `user` VALUES ('7', '', 'admin11', 'z123456', '3', null);
+INSERT INTO `user` VALUES ('8', '', 'admin111', 'z123456', '3', null);
 INSERT INTO `user` VALUES ('9', '', 'asdasd', 'asdasd', '3', null);
 INSERT INTO `user` VALUES ('10', '', 'zhangsan', 'zhangsan', '3', '10358,10328');

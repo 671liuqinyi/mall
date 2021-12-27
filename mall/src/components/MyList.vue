@@ -39,19 +39,6 @@ export default {
     return {}
   },
   computed: {
-    // 通过list获取当前显示的商品的分类ID，用于“浏览更多”链接的参数
-    /*     categoryID: function () {
-      let categoryID = []
-      if (this.list != '') {
-        for (let i = 0; i < this.list.length; i++) {
-          const id = this.list[i].category_id
-          if (!categoryID.includes(id)) {
-            categoryID.push(id)
-          }
-        }
-      }
-      return categoryID
-    }, */
     // 计算图片路径,显示图片
     imgList: function () {
       let imgList = []
@@ -80,28 +67,6 @@ export default {
       } else {
         this.$message.error('删除失败!')
       }
-      /* .then(res => {
-          switch (res.data.code) {
-            case '001':
-              // 删除成功
-              // 删除删除列表中的该商品信息
-              for (let i = 0; i < this.list.length; i++) {
-                const temp = this.list[i]
-                if (temp.product_id == product_id) {
-                  this.list.splice(i, 1)
-                }
-              }
-              // 提示删除成功信息
-              this.notifySucceed(res.data.msg)
-              break
-            default:
-              // 提示删除失败信息
-              this.notifyError(res.data.msg)
-          }
-        })
-        .catch(err => {
-          return Promise.reject(err)
-        }) */
     }
   }
 }

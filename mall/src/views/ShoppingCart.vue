@@ -102,13 +102,9 @@ import { mapActions } from 'vuex'
 import { mapGetters } from 'vuex'
 
 export default {
+  inject: ['reload'],
   data() {
     return {}
-  },
-  created() {
-    // console.log(this.$store.getters.getUser.userid)
-    // console.log(this.isAllCheck)
-    // console.log(this.$store.state.shoppingCart.shoppingCart)
   },
   methods: {
     ...mapActions(['updateShoppingCart', 'deleteShoppingCart', 'checkAll']),
@@ -130,27 +126,6 @@ export default {
           val: currentValue
         })
       }
-      /* .then(res => {
-          switch (res.data.code) {
-            case "001":
-              // “001”代表更新成功
-              // 更新vuex状态
-              this.updateShoppingCart({
-                key: key,
-                prop: "num",
-                val: currentValue
-              });
-              // 提示更新成功信息
-              this.notifySucceed(res.data.msg);
-              break;
-            default:
-              // 提示更新失败信息
-              this.notifyError(res.data.msg);
-          }
-        })
-        .catch(err => {
-          return Promise.reject(err);
-        }); */
     },
     checkChange(val, key) {
       // 更新vuex中购物车商品是否勾选的状态
@@ -158,33 +133,15 @@ export default {
     },
     // 向后端发起删除购物车的数据库信息请求
     async deleteItem(e, id, productID) {
-     let {data} = await this.$axios
-        .post('/api/deleteshoppingcart', {
-          user_id: this.$store.getters.getUser.userid,
-          product_id: productID
-        })
-        // console.log(data)
-        if(data.code=='200'){
-          this.deleteShoppingCart(productID)
-          location.reload()
-        }
-        /* .then(res => {
-          switch (res.data.code) {
-            case '001':
-              // “001” 删除成功
-              // 更新vuex状态
-              this.deleteShoppingCart(id)
-              // 提示删除成功信息
-              this.notifySucceed(res.data.msg)
-              break
-            default:
-              // 提示删除失败信息
-              this.notifyError(res.data.msg)
-          }
-        })
-        .catch(err => {
-          return Promise.reject(err)
-        }) */
+      let { data } = await this.$axios.post('/api/deleteshoppingcart', {
+        user_id: this.$store.getters.getUser.userid,
+        product_id: productID
+      })
+      // console.log(data)
+      if (data.code == '200') {
+        this.deleteShoppingCart(productID)
+        this.reload()
+      }
     }
   },
   computed: {
